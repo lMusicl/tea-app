@@ -1,0 +1,23 @@
+<section class="catalog">
+  <div class="container">
+    <div class="row text-center">
+      <h1 class="fw-bold mt-5">Наши чайные коллекции</h1>
+    </div>
+    <div class="card__warp">
+      <div class="card p-0" *ngFor=" let product of products; let i = index">
+        <a class="product-1">
+          <img src="{{product.image}}" class="card-img-top" alt="Image {{i+1}}">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title fw-bold">{{product.title}}</h5>
+          <p class="card-text fw-semibold">{{product.description | truncateText}}</p>
+          <p class="card-text text-decoration-underline ">{{product.price}} руб.</p>
+          <a href="#" class="btn btn-primary ps-5 pe-5" [routerLink]="['/catalog', product.id]">Подробнее</a>
+        </div>
+      </div>
+    </div>
+    <div class="loader-bg" *ngIf="loading">
+      <div class="loader"></div>
+    </div>
+  </div>
+</section>

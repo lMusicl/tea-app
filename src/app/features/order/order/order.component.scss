@@ -1,0 +1,17 @@
+.order{
+  margin-bottom: 338px;
+}
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched{
+  border-color: red;
+  color: red;
+}
+
+.invalid-feedback{
+  display: block;
+}
+
+.btn:disabled{
+  cursor: no-drop;
+  pointer-events: all;
+}

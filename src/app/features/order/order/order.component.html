@@ -1,0 +1,90 @@
+<section class="order">
+  <div class="container" style="max-width: 636px;" id="order" *ngIf="orderFormShow">
+    <div class="row mt-5 text-center mb-5 ">
+      <h3 class="fs-3 fw-bold">Сделать заказ</h3>
+    </div>
+    <form class="needs-validation" novalidate [formGroup]="checkoutForm">
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" placeholder="" formControlName="name" style="max-width: 590px;">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('name')?.invalid && (checkoutForm.get('name')?.touched || checkoutForm.get('name')?.dirty) && checkoutForm.get('name')?.errors?.['required']">Name is required!</div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('name')?.invalid && (checkoutForm.get('name')?.touched || checkoutForm.get('name')?.dirty) && checkoutForm.get('name')?.errors?.['pattern']">Name must contain only letters!</div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="last_name" class="form-label">Фамилия</label>
+              <input type="text" class="form-control" id="last_name" placeholder="" formControlName="last_name" style="max-width: 590px;">
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('last_name')?.invalid && (checkoutForm.get('last_name')?.touched || checkoutForm.get('last_name')?.dirty) && checkoutForm.get('last_name')?.errors?.['required']">Last name is required!</div>
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('last_name')?.invalid && (checkoutForm.get('last_name')?.touched || checkoutForm.get('last_name')?.dirty) && checkoutForm.get('last_name')?.errors?.['pattern']">Last name must contain only letters!</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="phone" class="form-label">Телефон</label>
+              <input type="text" class="form-control" id="phone" placeholder="" formControlName="phone" style="max-width: 590px;">
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.invalid && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty) && checkoutForm.get('phone')?.errors?.['required']">Phone is required!</div>
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.invalid && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty) && checkoutForm.get('phone')?.errors?.['pattern']">Phone must contain only number!</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="country" class="form-label">Страна</label>
+              <input type="text" class="form-control" id="country" placeholder="" formControlName="country">
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.invalid && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty) && checkoutForm.get('country')?.errors?.['required']">Country is required!</div>
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.invalid && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty) && checkoutForm.get('country')?.errors?.['pattern']">Country must contain only letters!</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="zip" class="form-label">Индекс</label>
+              <input type="text" class="form-control" id="zip" placeholder="" formControlName="zip">
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.invalid && (checkoutForm.get('zip')?.touched || checkoutForm.get('zip')?.dirty) && checkoutForm.get('zip')?.errors?.['required']">Zip is required!</div>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col">
+            <div class="mb-3">
+              <label for="address" class="form-label">Адрес</label>
+              <input type="text" class="form-control" id="address" placeholder="" formControlName="address">
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.invalid && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty) && checkoutForm.get('address')?.errors?.['required']">Address is required!</div>
+              <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.invalid && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty) && checkoutForm.get('address')?.errors?.['minlength']">Country must be more than 10 characters</div>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col">
+            <div class="mb-3">
+              <label for="address" class="form-label" >Продукт</label>
+              <input type="text" class="form-control" formControlName="product">
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col">
+            <div class="mb-3">
+              <label for="address" class="form-label">Комментарий</label>
+              <input type="text" class="form-control" id="comment" placeholder="">
+            </div>
+          </div>
+        </div>
+        <div class="row" style="max-width: 97%; margin-left: 0">
+          <button type="submit" id="submit" class="btn btn-primary w-100" [disabled]="checkoutForm.invalid || checkoutForm.disabled" (click)="createOrderTea()">Отправить</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row justify-content-center pt-5 pb-5" >
+    <div class="card" style="width: 30rem;" *ngIf="!orderFormShow">
+      <div class="card-body">
+        <h5 class="card-title text-center">Спасибо за заказ!</h5>
+      </div>
+      <a href="#" style="width: 20rem; margin-left: 60px" class="btn btn-primary mb-5 text-center" (click)="orderFormShow = true">На главную Страницу</a>
+    </div>
+  </div>
+</section>

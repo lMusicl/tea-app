@@ -1,0 +1,18 @@
+<section class="product">
+      <div class="container">
+        <div class="row">
+          <div class="card p-0">
+            <a class="product-1">
+              <img src="{{product.image}}" class="card-img-top" alt="Image">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{product.title}}</h5>
+              <p class="card-text fw-semibold">{{product.description}}</p>
+              <p class="card-text text-decoration-underline">{{product.price}} руб.</p>
+              <button class="btn btn-secondary ps-5 pe-5 fw-bold"
+              [routerLink]="['/order']" [queryParams]="{product: product.title}">Купить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
